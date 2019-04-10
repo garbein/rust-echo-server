@@ -1,0 +1,15 @@
+[package]
+name = "echo-server"
+version = "0.1.0"
+authors = ["zhouyelin"]
+edition = "2018"
+
+[dependencies]
+
+[[bin]]
+name="echo-server"
+path="src/server.rs"
+
+[[bin]]
+name="echo-client"
+path="src/client.rs"
