@@ -3,25 +3,7 @@ use std::io;
 use std::io::prelude::*;
 use std::net::TcpStream;
 use std::process;
-
-struct Config {
-    ip: String,
-    port: usize,
-}
-
-impl Config {
-    fn new(args: Vec<String>) -> Result<Config, &'static str> {
-        let default_port = String::from("7878");
-        let port_string = args.get(1).unwrap_or(&default_port).clone();
-        let port = match port_string.parse() {
-            Ok(t) => t,
-            Err(_) => return Err("port is not usize"),
-        };
-        let default_ip = String::from("0.0.0.0");
-        let ip = args.get(2).unwrap_or(&default_ip).clone();
-        Ok(Config { ip, port })
-    }
-}
+use echo_server::Config;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
